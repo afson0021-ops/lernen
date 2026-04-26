@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AnkiPro – Deutsch B2 Komplett</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07090d;--s1:#0c1018;--s2:#111722;--s3:#161f2e;--s4:#1b2538;--s5:#202c40;
+  --teal:#2dd4bf;--teal2:#14b8a6;--teal3:#0d9488;
+  --red:#f87171;--r2:#dc2626;--orange:#fb923c;
+  --green:#4ade80;--g2:#16a34a;
+  --yellow:#facc15;--purple:#a78bfa;--blue:#60a5fa;--pink:#f472b6;
+  --t1:#f0f4f8;--t2:#94a3b8;--t3:#64748b;--t4:#475569;--t5:#2d3a4a;
+  --bd:rgba(255,255,255,0.055);--bd2:rgba(255,255,255,0.09);
+  --ra:10px;--rb:14px;--rc:20px;
+}
+html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Inter',sans-serif;font-size:14px;overflow:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--s5);border-radius:2px}
+.app{display:flex;height:100vh}
+.side{width:220px;background:var(--s1);border-right:1px solid var(--bd);display:flex;flex-direction:column;flex-shrink:0}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.body{flex:1;overflow-y:auto;padding:20px 22px}
+.logo{padding:18px 14px 14px;border-bottom:1px solid var(--bd)}
+.logo-r{display:flex;align-items:center;gap:9px}
+.logo-g{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--teal3),#075e52);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 0 18px rgba(13,148,136,0.4);flex-shrink:0}
+.logo-n{font-size:15px;font-weight:800;letter-spacing:-0.5px}
+.logo-s{font-size:9px;color:var(--teal);background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.18);padding:2px 7px;border-radius:4px;margin-top:2px;display:inline-block;letter-spacing:1.2px;font-weight:600}
+.usr{padding:11px 14px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:9px}
+.av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--teal3),var(--purple));display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.un{font-size:11px;font-weight:600}.us{font-size:9px;color:var(--t4);margin-top:1px}
+.ux{height:2px;background:var(--s5);border-radius:1px;margin-top:4px;overflow:hidden}
+.uxf{height:100%;width:68%;background:linear-gradient(90deg,var(--teal3),var(--teal))}
+.nav{flex:1;overflow-y:auto;padding:8px}
+.ns{font-size:9px;color:var(--t5);text-transform:uppercase;letter-spacing:1.5px;padding:9px 8px 3px;font-weight:700}
+.ni{display:flex;align-items:center;gap:8px;padding:8px 9px;border-radius:8px;cursor:pointer;font-size:12.5px;color:var(--t3);margin-bottom:1px;transition:all .14s;user-select:none}
+.ni:hover{color:var(--t2);background:rgba(255,255,255,.03)}
+.ni.on{color:var(--teal);font-weight:600;background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.12)}
+.ni svg{width:14px;height:14px;flex-shrink:0;stroke-width:2}
+.nb{margin-left:auto;font-size:10px;font-weight:700;padding:1px 6px;border-radius:7px;line-height:1.5}
+.nb.r{background:rgba(220,38,38,.15);color:var(--red)}
+.nb.g{background:rgba(13,148,136,.15);color:var(--teal)}
+.tb{height:50px;background:var(--s1);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 18px;gap:12px;flex-shrink:0}
+.tb-t{font-size:15px;font-weight:700;flex:1;letter-spacing:-0.3px}
+.chip{display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:16px;font-size:11px;font-weight:600;border:1px solid}
+.chip.fire{background:rgba(250,204,21,.06);border-color:rgba(250,204,21,.14);color:var(--yellow)}
+.chip.xp{background:rgba(45,212,191,.05);border-color:rgba(45,212,191,.1);color:var(--teal)}
+.xpr{width:70px;height:3px;background:var(--s5);border-radius:2px;overflow:hidden}
+.xpf{height:100%;width:68%;background:linear-gradient(90deg,var(--teal3),var(--teal))}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:var(--rb);padding:18px 20px;margin-bottom:10px}
+.ct{font-size:9.5px;color:var(--t4);text-transform:uppercase;letter-spacing:1.2px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.mc{background:var(--s2);border:1px solid var(--bd);border-radius:var(--ra);padding:13px 15px;transition:all .2s;cursor:default}
+.mc:hover{border-color:var(--bd2);transform:translateY(-1px)}
+.mv{font-size:28px;font-weight:800;line-height:1;letter-spacing:-1px}
+.ml{font-size:9px;color:var(--t4);margin-top:4px;text-transform:uppercase;letter-spacing:.9px}
+.mch{font-size:10px;margin-top:3px}
+.up{color:var(--green)}.dn{color:var(--red)}.nu{color:var(--t4)}
+.cw{position:relative;width:100%}
+.cw.h160{height:160px}.cw.h200{height:200px}.cw.h240{height:240px}
+.deck-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:var(--ra);cursor:pointer;transition:all .15s;border:1px solid transparent;margin-bottom:6px}
+.deck-row:hover{background:var(--s2);border-color:var(--bd)}
+.deck-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;border:1px solid var(--bd)}
+.deck-info{flex:1;min-width:0}
+.deck-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.deck-sub{font-size:10px;color:var(--t4)}
+.deck-counts{display:flex;gap:5px;align-items:center}
+.dc{font-size:12px;font-weight:700;padding:3px 8px;border-radius:7px}
+.dc.new{background:rgba(96,165,250,.1);color:var(--blue)}
+.dc.lrn{background:rgba(251,146,60,.1);color:var(--orange)}
+.dc.rev{background:rgba(74,222,128,.1);color:var(--green)}
+.rev-wrap{display:flex;flex-direction:column;height:100%;padding:14px 18px;gap:10px}
+.rev-prog-bar{height:3px;background:var(--s4);border-radius:2px;overflow:hidden;flex-shrink:0}
+.rev-prog-fill{height:100%;background:linear-gradient(90deg,var(--teal3),var(--teal));transition:width .4s ease}
+.flip-scene{flex:1;perspective:1200px;cursor:pointer;min-height:0}
+.flip-card{width:100%;height:100%;transition:transform .55s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;position:relative}
+.flip-card.flipped{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--rc);border:1px solid var(--bd2);display:flex;flex-direction:column;overflow:hidden}
+.fc-front{background:linear-gradient(160deg,var(--s2) 0%,var(--s3) 100%)}
+.fc-back{background:linear-gradient(160deg,var(--s3) 0%,var(--s4) 100%);transform:rotateY(180deg)}
+.fc-header{padding:12px 16px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.fc-type{font-size:9px;color:var(--t4);text-transform:uppercase;letter-spacing:1.2px;font-weight:700}
+.fc-tags{display:flex;gap:4px;flex-wrap:wrap}
+.fc-tag{font-size:9px;padding:1px 6px;border-radius:5px;background:var(--s4);color:var(--t3);border:1px solid var(--bd)}
+.fc-body{flex:1;display:flex;align-items:center;justify-content:center;padding:16px;flex-direction:column;gap:12px;min-height:0;overflow-y:auto}
+.fc-img-ph{font-size:50px;flex-shrink:0}
+.fc-sentence{font-size:20px;font-weight:700;text-align:center;line-height:1.6;letter-spacing:-0.3px;color:var(--t1)}
+.fc-sentence .cloze{color:var(--teal);border-bottom:2px solid var(--teal);padding:0 4px}
+.fc-sentence .blank{color:transparent;background:var(--s5);border-radius:4px;padding:0 18px;user-select:none}
+.fc-hint{font-size:11px;color:var(--t4);text-align:center;font-style:italic}
+.fc-trans{font-size:15px;color:var(--t2);text-align:center;line-height:1.7}
+.fc-grammar{background:rgba(45,212,191,.06);border:1px solid rgba(45,212,191,.14);border-radius:var(--ra);padding:11px 13px;width:100%;font-size:11px;line-height:1.8;color:var(--t3)}
+.fc-grammar strong{color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px}
+.fc-grammar em{color:var(--yellow)}
+.fc-footer{padding:10px 16px;border-top:1px solid var(--bd);text-align:center;flex-shrink:0}
+.flip-hint{text-align:center;font-size:11px;color:var(--t5);flex-shrink:0}
+.ans-row{display:flex;gap:7px;flex-shrink:0}
+.ans-btn{flex:1;border:none;border-radius:var(--rb);padding:11px 6px;cursor:pointer;font-weight:700;font-size:12px;transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:2px;font-family:'Inter',sans-serif}
+.ans-btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
+.ai{font-size:9px;font-weight:500;opacity:.7}
+.again{background:rgba(220,38,38,.15);color:var(--red);border:1px solid rgba(220,38,38,.25)}
+.hard{background:rgba(251,146,60,.12);color:var(--orange);border:1px solid rgba(251,146,60,.22)}
+.good{background:rgba(45,212,191,.12);color:var(--teal);border:1px solid rgba(45,212,191,.22)}
+.easy{background:rgba(74,222,128,.12);color:var(--green);border:1px solid rgba(74,222,128,.22)}
+.show-btn{width:100%;background:linear-gradient(135deg,var(--teal3),#075e52);color:#fff;border:none;border-radius:var(--rb);padding:13px;cursor:pointer;font-size:14px;font-weight:700;letter-spacing:.3px;transition:all .15s;font-family:'Inter',sans-serif}
+.show-btn:hover{opacity:.9;box-shadow:0 6px 20px rgba(13,148,136,.35)}
+.done-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:20px;padding:30px;text-align:center}
+.done-icon{font-size:52px}.done-title{font-size:24px;font-weight:800;letter-spacing:-0.5px}
+.done-sub{font-size:13px;color:var(--t3);max-width:360px;line-height:1.7}
+.done-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;max-width:400px}
+.ds{background:var(--s2);border:1px solid var(--bd);border-radius:var(--ra);padding:13px;text-align:center}
+.ds-v{font-size:22px;font-weight:800}.ds-l{font-size:10px;color:var(--t4);margin-top:2px;text-transform:uppercase;letter-spacing:.8px}
+.browse-table{width:100%;border-collapse:collapse;font-size:12px}
+.browse-table th{padding:8px 10px;text-align:left;font-size:9px;color:var(--t4);text-transform:uppercase;letter-spacing:1px;font-weight:700;border-bottom:1px solid var(--bd);position:sticky;top:0;background:var(--s1)}
+.browse-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.03);vertical-align:middle;max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.browse-table tr:hover td{background:rgba(255,255,255,.02)}
+.st-pill{display:inline-block;padding:2px 7px;border-radius:6px;font-size:9px;font-weight:600}
+.st-new{background:rgba(96,165,250,.1);color:var(--blue)}
+.st-lrn{background:rgba(251,146,60,.1);color:var(--orange)}
+.st-rev{background:rgba(74,222,128,.1);color:var(--green)}
+.st-lch{background:rgba(248,113,113,.12);color:var(--red)}
+.form-row{margin-bottom:13px}
+.form-label{font-size:10px;color:var(--t4);text-transform:uppercase;letter-spacing:.9px;font-weight:700;margin-bottom:5px;display:block}
+.form-inp{width:100%;background:var(--s2);border:1px solid var(--bd2);border-radius:var(--ra);padding:9px 12px;color:var(--t1);font-size:13px;outline:none;font-family:'Inter',sans-serif;transition:border-color .15s}
+.form-inp:focus{border-color:var(--teal3);box-shadow:0 0 0 3px rgba(13,148,136,.09)}
+.form-inp::placeholder{color:var(--t5)}
+textarea.form-inp{resize:vertical;min-height:60px;line-height:1.6}
+.abtn{background:linear-gradient(135deg,var(--teal3),#075e52);color:#fff;border:none;border-radius:var(--ra);padding:10px 17px;cursor:pointer;font-size:12.5px;font-weight:600;letter-spacing:.3px;transition:all .15s;font-family:'Inter',sans-serif}
+.abtn:hover{opacity:.9;box-shadow:0 4px 14px rgba(13,148,136,.35);transform:translateY(-1px)}
+.abtn.sec{background:var(--s3);color:var(--t2);border:1px solid var(--bd2);box-shadow:none}
+.abtn.sec:hover{background:var(--s4);transform:none}
+.abtn.danger{background:rgba(220,38,38,.12);color:var(--red);border:1px solid rgba(220,38,38,.2);box-shadow:none}
+.heatmap{display:grid;grid-template-columns:repeat(26,1fr);gap:3px;margin-top:8px}
+.hc{aspect-ratio:1;border-radius:2px;cursor:pointer;transition:transform .1s}
+.hc:hover{transform:scale(1.4)}
+.h0{background:var(--s3)}.h1{background:rgba(13,148,136,.2)}.h2{background:rgba(13,148,136,.4)}.h3{background:rgba(13,148,136,.6)}.h4{background:rgba(13,148,136,.8)}.h5{background:var(--teal3)}
+.badge{padding:3px 8px;border-radius:6px;font-size:10px;font-weight:600}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--s3);border:1px solid var(--bd2);border-radius:24px;padding:9px 18px;font-size:12px;font-weight:500;z-index:500;opacity:0;transition:all .3s;white-space:nowrap;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.ok{border-color:rgba(74,222,128,.3);color:var(--green)}
+.toast.bad{border-color:rgba(248,113,113,.3);color:var(--red)}
+.row{display:flex;align-items:center;gap:8px}
+.mb10{margin-bottom:10px}.mt8{margin-top:8px}.mt12{margin-top:12px}
+.mono{font-family:'JetBrains Mono',monospace}
+.body{animation:pi .22s ease}
+@keyframes pi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-ov.on{display:flex}
+.modal-box{background:var(--s1);border:1px solid var(--bd2);border-radius:var(--rc);width:500px;max-width:92vw;max-height:88vh;overflow-y:auto;padding:24px;animation:pop .22s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+.voc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.vc{background:var(--s2);border:1px solid var(--bd);border-radius:var(--ra);padding:11px 13px;cursor:pointer;transition:all .15s}
+.vc:hover{border-color:var(--teal3);background:rgba(45,212,191,.04)}
+.vc-w{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:2px}
+.vc-t{font-size:10px;color:var(--t4)}
+.vc-tag{font-size:9px;color:var(--teal);margin-top:3px}
+.chapter-pill{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:600;border:1px solid;cursor:pointer;margin:3px;transition:all .15s}
+.chapter-pill:hover{filter:brightness(1.2)}
+.chapter-pill.active{filter:brightness(1.3)}
+.hint-reveal{margin-top:12px;padding:11px 13px;background:rgba(45,212,191,.05);border:1px solid rgba(45,212,191,.12);border-radius:var(--ra);font-size:12px;color:var(--t2);display:none;line-height:1.8;animation:pi .3s ease}
+.hint-reveal strong{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.ch-hero{background:linear-gradient(135deg,rgba(13,148,136,.12),rgba(45,212,191,.04));border:1px solid rgba(45,212,191,.15);border-radius:var(--rc);padding:22px 24px;margin-bottom:10px}
+.ch-q{font-size:22px;font-weight:800;color:var(--t1);letter-spacing:-0.5px;margin:12px 0}
+.ch-q .blank{color:transparent;background:var(--s5);border-radius:5px;padding:2px 22px}
+.ch-q .cloze{color:var(--teal);border-bottom:2px solid var(--teal)}
+.ch-opts{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:14px}
+.opt{background:var(--s3);border:1px solid var(--bd2);border-radius:var(--ra);padding:10px 14px;cursor:pointer;font-size:13px;font-weight:500;color:var(--t2);text-align:left;transition:all .15s;display:flex;align-items:center;gap:8px}
+.opt-l{width:21px;height:21px;border-radius:5px;background:var(--s5);color:var(--t4);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.opt:hover{border-color:var(--teal3);color:var(--teal)}.opt:hover .opt-l{background:var(--teal3);color:#fff}
+.opt.ok{background:rgba(74,222,128,.08);border-color:var(--green);color:var(--green)}.opt.ok .opt-l{background:var(--g2);color:#fff}
+.opt.bad{background:rgba(248,113,113,.08);border-color:var(--red);color:var(--red)}.opt.bad .opt-l{background:var(--r2);color:#fff}
+.sk-bar{height:6px;background:var(--s4);border-radius:3px;overflow:hidden;margin-top:5px}
+.sk-fill{height:100%;border-radius:3px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="side">
+  <div class="logo">
+    <div class="logo-r">
+      <div class="logo-g">🧠</div>
+      <div><div class="logo-n">AnkiPro</div><div class="logo-s">DEUTSCH B2</div></div>
+    </div>
+  </div>
+  <div class="usr">
+    <div class="av">AR</div>
+    <div style="flex:1;min-width:0">
+      <div class="un">Aria Rezaei</div>
+      <div class="us">Level 12 · 2.340 XP</div>
+      <div class="ux"><div class="uxf"></div></div>
+    </div>
+  </div>
+  <div class="nav">
+    <div class="ns">Lernen</div>
+    <div class="ni on" id="ni-decks" onclick="go('decks')">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Decks <span class="nb r" id="nb-due">0</span>
+    </div>
+    <div class="ni" id="ni-review" onclick="startReview()">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-linecap="round"/></svg>
+      Wiederholen <span class="nb r" id="nb-rev2">0</span>
+    </div>
+    <div class="ni" id="ni-voc" onclick="go('voc')">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round"/></svg>
+      Vokabelliste
+    </div>
+    <div class="ni" id="ni-add" onclick="go('add')">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round"/></svg>
+      Karte hinzufügen
+    </div>
+    <div class="ns">Analyse</div>
+    <div class="ni" id="ni-browse" onclick="go('browse')">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h8" stroke-linecap="round"/></svg>
+      Kartenbrowser
+    </div>
+    <div class="ni" id="ni-stats" onclick="go('stats')">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Statistiken
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="tb">
+    <div class="tb-t" id="ptitle">Decks</div>
+    <div class="row">
+      <div class="chip fire">🔥 14 Tage</div>
+      <div class="chip xp">LVL 12 <div class="xpr"><div class="xpf"></div></div> 340/500</div>
+    </div>
+  </div>
+  <div class="body" id="body"></div>
+</div>
+</div>
+<div class="toast" id="toast"></div>
+<div class="modal-ov" id="editModal">
+  <div class="modal-box">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <div style="font-size:15px;font-weight:700">Karte bearbeiten</div>
+      <button onclick="closeEdit()" class="abtn sec" style="padding:5px 11px;font-size:11px">✕</button>
+    </div>
+    <div id="edit-body"></div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════ SM-2 ═══════════════ */
+const NOW=()=>Date.now(),DAY=86400000;
+function sm2(card,q){
+  let{interval,ef,reps,lapses}=card;
+  if(q===0){lapses++;interval=1;reps=0;ef=Math.max(1.3,ef-0.2);}
+  else if(q===1){interval=reps===0?1:Math.max(1,Math.round(interval*1.2));ef=Math.max(1.3,ef-0.15);reps++;}
+  else if(q===2){interval=reps===0?1:reps===1?4:Math.round(interval*ef);ef=Math.max(1.3,ef+(0.1-(3-q)*(0.08+(3-q)*0.02)));reps++;}
+  else{interval=reps===0?4:reps===1?6:Math.round(interval*ef*1.3);ef+=0.1;reps++;}
+  interval=Math.min(interval,365);
+  const due=NOW()+interval*DAY;
+  const status=lapses>=4?'leech':reps>1?'review':'learning';
+  return{...card,interval,ef,reps,lapses,due,lastReview:NOW(),status,totalReviews:(card.totalReviews||0)+1,correctReviews:(card.correctReviews||0)+(q>0?1:0)};
+}
+
+/* ═══════════════ DECKS ═══════════════ */
+const DECKS_DEF=[
+  {id:'job',name:'Jobsuche & Bewerbung',icon:'💼',color:'rgba(96,165,250,.08)',desc:'Kap. 2 · S.196–197',ch:'Kapitel 2'},
+  {id:'buero',name:'Erster Arbeitstag & Büro',icon:'🏢',color:'rgba(45,212,191,.08)',desc:'Kap. 3 · S.212–213',ch:'Kapitel 3'},
+  {id:'meeting',name:'Meeting & Konflikte',icon:'🗣️',color:'rgba(167,139,250,.08)',desc:'Kap. 4 · S.226–227',ch:'Kapitel 4'},
+  {id:'messe',name:'Messe & Produkt',icon:'🏭',color:'rgba(251,146,60,.08)',desc:'Kap. 5 · S.242–243',ch:'Kapitel 5'},
+  {id:'team',name:'Teamarbeit & Kommunikation',icon:'🤝',color:'rgba(244,114,182,.08)',desc:'Kap. 6 · S.256–257',ch:'Kapitel 6'},
+  {id:'angebot',name:'Angebote & Reklamation',icon:'📋',color:'rgba(74,222,128,.08)',desc:'Kap. 7 · S.272–273',ch:'Kapitel 7'},
+  {id:'gefuehl',name:'Gefühle & Eigenschaften',icon:'😊',color:'rgba(250,204,21,.08)',desc:'Kap. 8 · S.290',ch:'Kapitel 8'},
+];
+
+/* ═══════════════ VOCABULARY MASTER LIST ═══════════════ */
+/* [word, translation_fa, grammar_note, emoji, tags[], deck, example_sentence_with_cloze] */
+const VOC=[
+/* ── KAPITEL 2: JOBSUCHE ── */
+['herstellen','تولید کردن / ساختن','<strong>herstellen</strong> trennbar: stellt her | Her·stell·ung (Nomen)','🏗️',['Verb','trennbar'],'job','Das Unternehmen {{herstellt}} täglich hundert Produkte.'],
+['kostengünstig','مقرون‌به‌صرفه','Adjektiv | Komp: kostengünstiger | günstig = ارزان','💰',['Adj'],'job','Diese Methode ist sehr {{kostengünstig}}.'],
+['weiterverarbeiten','بیشتر فرآوری کردن','trennbar | verarbeiten + weiter | Passiv häufig','♻️',['Verb','trennbar'],'job','Das Material wird dann {{weiterverarbeitet}}.'],
+['die Spedition','شرکت حمل‌ونقل','-en | Logistik-Begriff | der Spediteur = متصدی حمل','🚛',['Nomen','Beruf'],'job','Er arbeitet bei einer großen {{Spedition}}.'],
+['die Kundschaft','مشتریان (جمع)','nur Singular | die Kunden = مشتریان','👥',['Nomen'],'job','Die {{Kundschaft}} ist sehr zufrieden.'],
+['verärgern','عصبانی کردن','Akkusativ | jdn. verärgern | Adj: verärgert','😤',['Verb'],'job','Solches Verhalten kann die Kunden {{verärgern}}.'],
+['sich spezialisieren auf','تخصص پیدا کردن در','+ Akkusativ | Partizip: spezialisiert auf','🎯',['Verb','Präp','Akk'],'job','Sie hat sich {{auf}} Steuerrecht {{spezialisiert}}.'],
+['die Stellenanzeige','آگهی استخدام','-n | = Stellenausschreibung | im Jobportal','📰',['Nomen','Bewerbung'],'job','Er hat die {{Stellenanzeige}} in der Zeitung gefunden.'],
+['der Lebenslauf','رزومه / بیوگرافی','=e | Abk: CV | tabellarischer Lebenslauf','📄',['Nomen','Bewerbung'],'job','Ihr {{Lebenslauf}} muss aktuell sein.'],
+['die Bewerbung','درخواست کار / فرم درخواست','-en | sich bewerben um + Akk. | die Bewerbungsmappe','📝',['Nomen','Bewerbung'],'job','Sie hat eine {{Bewerbung}} abgeschickt.'],
+['die Berufserfahrung','تجربه کاری','nur Sg. | Beruf + Erfahrung | langjährige Erfahrung','💼',['Nomen','Bewerbung'],'job','Er hat viel {{Berufserfahrung}} in der IT.'],
+['die Herausforderung','چالش / مسئله دشوار','-en | herausfordern (Verb) | eine ~ annehmen','⚡',['Nomen'],'job','Das Projekt ist eine große {{Herausforderung}}.'],
+['abwechslungsreich','متنوع / پر تنوع','Adjektiv | abwechseln (Verb) | Gegenteil: eintönig','🎨',['Adj'],'job','Die Arbeit ist sehr {{abwechslungsreich}}.'],
+['anstrengend','خسته‌کننده / سخت','Adjektiv | sich anstrengen (Verb) | körperlich/geistig','😓',['Adj'],'job','Diese Tätigkeit ist sehr {{anstrengend}}.'],
+['persönliche Angaben','اطلاعات شخصی','Pl. | im Formular | = Personalien','🪪',['Nomen','Lebenslauf'],'job','Füllen Sie bitte die {{persönlichen Angaben}} aus.'],
+['die Nationalität','ملیت','-en | die Nation + -ität | Staatsangehörigkeit','🌍',['Nomen','Lebenslauf'],'job','Bitte geben Sie Ihre {{Nationalität}} an.'],
+['die Weiterbildung','آموزش بیشتر / ارتقاء','-en | sich weiterbilden | = Fortbildung','📚',['Nomen','Lebenslauf'],'job','Er macht eine {{Weiterbildung}} im Bereich IT.'],
+['fließend','روان (زبان)','Adverb/Adj | fließend sprechen | fließende Kenntnisse','💬',['Adj','Adverb'],'job','Sie spricht {{fließend}} Deutsch und Englisch.'],
+['verhandlungssicher','مذاکره‌کننده ماهر','Adj | verhandeln + sicher | B2-Kenntnisse','🤝',['Adj'],'job','Er ist in Englisch {{verhandlungssicher}}.'],
+['teamfähig','توانایی کار تیمی داشتن','Adj | Team + fähig | Teamfähigkeit (Nomen)','👥',['Adj'],'job','Sie ist sehr {{teamfähig}} und hilfsbereit.'],
+['erstellen','ایجاد کردن / تهیه کردن','Akkusativ | = anfertigen | einen Bericht erstellen','💻',['Verb'],'job','Er muss einen Bericht {{erstellen}}.'],
+['das duale Studium','تحصیلات دانشگاهی دوگانه','nur Sg. | Uni + Betrieb gleichzeitig | dt. System','🏫',['Nomen','Ausbildung'],'job','Das {{duale Studium}} verbindet Theorie und Praxis.'],
+['verdienen','درآمد داشتن / کسب کردن','Akkusativ | das Gehalt verdienen | sich verdient machen','💶',['Verb'],'job','Sie {{verdient}} gut als Ingenieurin.'],
+['die Stellenausschreibung','آگهی استخدام رسمی','-en | = Stellenanzeige | ausschreiben trennbar','📋',['Nomen','Bewerbung'],'job','Die {{Stellenausschreibung}} ist online.'],
+['eine Anforderung erfüllen','یک شرط را برآورده کردن','Anforderung + erfüllen | Akk. | die Voraussetzung','✅',['Wendung','Bewerbung'],'job','Sie erfüllt alle {{Anforderungen}} für die Stelle.'],
+['verantwortungsvoll','مسئولیت‌پذیر','Adj | Verantwortung + voll | verantwortlich','🎯',['Adj'],'job','Er ist sehr {{verantwortungsvoll}} bei der Arbeit.'],
+/* ── KAPITEL 3: BÜRO ── */
+['die Abteilung','بخش / دپارتمان','-en | Unternehmensstruktur | der Abteilungsleiter','🏢',['Nomen','Büro'],'buero','Er arbeitet in der Marketing-{{Abteilung}}.'],
+['die Buchhaltung','بخش حسابداری','nur Sg. | Buchhaltung = Accounting | buchen (Verb)','📊',['Nomen','Büro'],'buero','Die {{Buchhaltung}} erstellt die Jahresabrechnung.'],
+['die Personalabteilung','دپارتمان منابع انسانی','-en | = HR-Abteilung | Personal + Abteilung','👤',['Nomen','Büro'],'buero','Fragen Sie die {{Personalabteilung}} nach den Urlaubstagen.'],
+['der Vertrieb','واحد فروش','-e | = Verkauf | Vertriebsleiter','💹',['Nomen','Büro'],'buero','Er ist im {{Vertrieb}} tätig.'],
+['vertraglich festlegen','به صورت قراردادی تعیین کردن','festlegen trennbar | vertragliche Vereinbarung','⚖️',['Wendung','Büro'],'buero','Das Gehalt wird {{vertraglich}} {{festgelegt}}.'],
+['vertrauensvoll','مورد اعتماد / قابل اعتماد','Adj | Vertrauen + voll | vertrauenswürdig','🤝',['Adj'],'buero','Die Zusammenarbeit ist sehr {{vertrauensvoll}}.'],
+['die Bankverbindung','مشخصات حساب بانکی','-en | IBAN + BIC | Bankdaten','🏦',['Nomen','Büro'],'buero','Bitte geben Sie Ihre {{Bankverbindung}} an.'],
+['das Führungszeugnis','گواهی عدم سوء پیشینه','-se | polizeiliches ~ | beim Amt beantragen','📜',['Nomen','Büro'],'buero','Er braucht ein {{Führungszeugnis}} für die Stelle.'],
+['zuständig für','مسئول / مربوط به','+ Akkusativ | = verantwortlich für | die Zuständigkeit','🎯',['Adj','Präp','Akk'],'buero','Wer ist {{zuständig}} {{für}} die IT-Systeme?'],
+['sich befinden','قرار داشتن','befindet, befand, hat befunden | + Ortsangabe','📍',['Verb','reflexiv'],'buero','Das Büro {{befindet}} sich im dritten Stock.'],
+['ermöglichen','ممکن کردن / امکان‌پذیر کردن','Akkusativ | = erlauben | jdm. etw. ermöglichen','🔓',['Verb'],'buero','Diese App {{ermöglicht}} schnelle Kommunikation.'],
+['die Durchwahl','شماره داخلی (تلفن)','-en | Telefonnummer intern | = Extension','📞',['Nomen','Büro'],'buero','Meine {{Durchwahl}} ist 247.'],
+['ergonomisch','ارگونومیک / مناسب با بدن','Adj | Ergonomie (Nomen) | ergonomischer Stuhl','🪑',['Adj'],'buero','Der Schreibtisch ist {{ergonomisch}} eingestellt.'],
+['gründlich','کامل / دقیق','Adj/Adverb | = sorgfältig | gründliche Arbeit','🔍',['Adj'],'buero','Sie arbeitet sehr {{gründlich}} und präzise.'],
+['umgehend','فوری / بلافاصله','Adverb | = sofort | umgehend reagieren','⚡',['Adverb'],'buero','Bitte reagieren Sie {{umgehend}} auf diese E-Mail.'],
+['auf keinen Fall','به هیچ وجه','= niemals | Gegenteil: auf jeden Fall | idiomatisch','🚫',['Wendung'],'buero','Das darf {{auf keinen Fall}} passieren.'],
+['sich in Verbindung setzen mit','با کسی تماس گرفتن','+ Dativ | = kontaktieren | formal','📨',['Wendung','Präp'],'buero','Bitte {{setzen}} Sie sich {{mit}} uns {{in Verbindung}}.'],
+['Rückmeldung geben','بازخورد دادن','+ zu + Dativ | = Feedback | die Rückmeldung','💬',['Wendung'],'buero','Ich gebe Ihnen bis morgen {{Rückmeldung}}.'],
+['sich abstimmen mit','هماهنگ کردن با','+ Dativ | = koordinieren | die Abstimmung','🤝',['Verb','Präp','Dat'],'buero','Wir müssen uns {{mit}} dem Team {{abstimmen}}.'],
+['berücksichtigen','در نظر گرفتن / لحاظ کردن','Akkusativ | = beachten | bei der Planung','🧩',['Verb'],'buero','Bitte {{berücksichtigen}} Sie alle Kosten.'],
+['zeitnah','به موقع / در وقت مناسب','Adverb/Adj | = prompt | zeitnah reagieren','⏰',['Adverb'],'buero','Wir reagieren {{zeitnah}} auf Ihre Anfrage.'],
+['entsorgen','دور انداختن / دفع کردن','Akkusativ | = wegwerfen (korrekt) | Mülltrennung','♻️',['Verb'],'buero','Bitte {{entsorgen}} Sie alte Dokumente korrekt.'],
+['die Fortbildung','دوره آموزشی / ارتقاء','-en | = Weiterbildung | Fortbildungsmaßnahme','📚',['Nomen','Büro'],'buero','Er nimmt an einer {{Fortbildung}} teil.'],
+/* ── KAPITEL 4: MEETING ── */
+['das Meeting','جلسه / نشست','-s | = Besprechung | das Meeting leiten','🗓️',['Nomen','Meeting'],'meeting','Das {{Meeting}} beginnt um 10 Uhr.'],
+['die Videokonferenz','کنفرانس ویدیویی','-en | = Video-Call | online meeting','💻',['Nomen','Meeting'],'meeting','Wir haben eine {{Videokonferenz}} mit dem Kunden.'],
+['die Agenda','دستور جلسه','Agenden | Tagesordnung | Punkte der Agenda','📋',['Nomen','Meeting'],'meeting','Bitte senden Sie die {{Agenda}} vorher.'],
+['respektvoll','محترمانه','Adj | Respekt + voll | respektvoller Umgang','🙏',['Adj'],'meeting','Sprechen Sie immer {{respektvoll}} miteinander.'],
+['stichpunktartig','به صورت فهرست‌وار','Adj/Adverb | Stichpunkt = bullet point | kurz','📝',['Adj','Adverb'],'meeting','Notieren Sie alles {{stichpunktartig}}.'],
+['die Transparenz','شفافیت','nur Sg. | transparent (Adj) | Offenheit','🔍',['Nomen','Meeting'],'meeting','{{Transparenz}} ist wichtig in der Kommunikation.'],
+['profitieren von','سود بردن از','+ Dativ | = Nutzen ziehen | davon profitieren','📈',['Verb','Präp','Dat'],'meeting','Alle Mitarbeiter {{profitieren}} {{von}} dieser Lösung.'],
+['die Zuverlässigkeit','قابلیت اطمینان / اعتمادپذیری','nur Sg. | zuverlässig (Adj) | Qualität','✅',['Nomen','Teamarbeit'],'meeting','Die {{Zuverlässigkeit}} der Mitarbeiter ist hoch.'],
+['die Wertschätzung','قدردانی / ارزش‌گذاری','nur Sg. | wertschätzen (Verb) | = Anerkennung','❤️',['Nomen','Teamarbeit'],'meeting','{{Wertschätzung}} ist wichtig am Arbeitsplatz.'],
+['die Konkurrenz','رقابت / رقیب','nur Sg. | konkurrieren (Verb) | = Wettbewerb','🏆',['Nomen'],'meeting','Interne {{Konkurrenz}} kann schädlich sein.'],
+['jdn. bloßstellen','کسی را آبروریزی کردن','+ Akkusativ | = demütigen | negativ','😳',['Wendung'],'meeting','Man sollte niemanden vor anderen {{bloßstellen}}.'],
+['konstruktiv','سازنده','Adj | konstruktive Kritik | Gegenteil: destruktiv','🏗️',['Adj'],'meeting','Geben Sie {{konstruktive}} Kritik.'],
+['eine andere Perspektive einnehmen','دیدگاه دیگری داشتن','einnehmen trennbar | = Standpunkt wechseln','👁️',['Wendung'],'meeting','Versuchen Sie, eine andere {{Perspektive}} {{einzunehmen}}.'],
+['der Kompromiss','مصالحه / توافق','-e | einen Kompromiss finden | = Einigung','🤝',['Nomen'],'meeting','Wir haben einen guten {{Kompromiss}} gefunden.'],
+['beharren auf','پافشاری کردن روی','+ Dativ | = bestehen auf | stur sein','💪',['Verb','Präp','Dat'],'meeting','Er {{beharrt}} {{auf}} seinem Standpunkt.'],
+['unter vier Augen reden','خصوصی صحبت کردن','= vertraulich sprechen | privates Gespräch','🤫',['Wendung'],'meeting','Können wir {{unter vier Augen}} reden?'],
+['unter Druck stehen','تحت فشار بودن','= gestresst sein | Druck = فشار','😰',['Wendung'],'meeting','Sie {{steht}} gerade sehr {{unter Druck}}.'],
+['in Angriff nehmen','شروع کردن / دست به کار شدن','= beginnen | Angriff = حمله/شروع | idiomatisch','🚀',['Wendung'],'meeting','Wir müssen das Problem sofort {{in Angriff nehmen}}.'],
+['in Kauf nehmen','قبول کردن / پذیرفتن','= akzeptieren (negativ) | Nachteile hinnehmen','😤',['Wendung'],'meeting','Diese Verzögerungen müssen wir {{in Kauf nehmen}}.'],
+['das Ergebnisprotokoll','صورتجلسه نتایج','-e | = Protokoll | Ergebnis + Protokoll','📋',['Nomen','Meeting'],'meeting','Das {{Ergebnisprotokoll}} wird nach der Sitzung verteilt.'],
+['final','نهایی','Adj | = endgültig | die finale Version','✅',['Adj'],'meeting','Das ist die {{finale}} Entscheidung.'],
+['eine Entscheidung treffen','تصمیم گرفتن','treffen (trifft, traf, getroffen) | = entscheiden','⚖️',['Wendung'],'meeting','Wir müssen heute eine {{Entscheidung}} {{treffen}}.'],
+/* ── KAPITEL 5: MESSE ── */
+['die Messe','نمایشگاه','-n | das Messegelände | Messe Frankfurt','🏛️',['Nomen','Messe'],'messe','Die {{Messe}} findet in Frankfurt statt.'],
+['der Kongress','کنگره / همایش','-e | = Konferenz | internationaler Kongress','🎤',['Nomen','Messe'],'messe','Sie nimmt am internationalen {{Kongress}} teil.'],
+['vertreten sein','حضور داشتن / نمایندگی داشتن','sein + Partizip | = anwesend sein | repräsentieren','🏳️',['Wendung'],'messe','Wir sind auf der Messe {{vertreten}}.'],
+['der Schwerpunkt','اولویت / محور اصلی','-e | einen Schwerpunkt setzen | Fokus','🎯',['Nomen'],'messe','Der {{Schwerpunkt}} liegt auf Nachhaltigkeit.'],
+['kompetent','کارآزموده / شایسته','Adj | die Kompetenz (Nomen) | fachlich kompetent','⭐',['Adj'],'messe','Unser Team ist sehr {{kompetent}}.'],
+['werben für','تبلیغ کردن برای','+ Akkusativ | = Werbung machen | die Werbung','📢',['Verb','Präp','Akk'],'messe','Das Unternehmen {{wirbt}} {{für}} sein neues Produkt.'],
+['der Weltkonzern','شرکت چندملیتی / کنسرن جهانی','-e | = Multinational | weltweite Präsenz','🌐',['Nomen','Wirtschaft'],'messe','Sie arbeitet bei einem großen {{Weltkonzern}}.'],
+['weltweit','در سرتاسر جهان','Adverb/Adj | = international | global tätig','🌍',['Adverb'],'messe','Das Unternehmen ist {{weltweit}} tätig.'],
+['die Dienstleistung','خدمات','-en | Dienstleistungssektor | = Service','🛎️',['Nomen','Wirtschaft'],'messe','Sie bieten qualitativ hochwertige {{Dienstleistungen}} an.'],
+['benötigen','نیاز داشتن به','Akkusativ | = brauchen (formeller) | dringend ~','🔧',['Verb'],'messe','Wir {{benötigen}} mehr Zeit für das Projekt.'],
+['innovativ','نوآورانه','Adj | Innovation (Nomen) | innovative Lösung','💡',['Adj'],'messe','Das Unternehmen ist sehr {{innovativ}}.'],
+['die künstliche Intelligenz','هوش مصنوعی','KI | = AI (Abkürzung) | KI-System','🤖',['Nomen','Technologie'],'messe','{{Künstliche Intelligenz}} verändert die Arbeitswelt.'],
+['verwöhnen','لوس کردن / نازپروردن','Akkusativ | = gut behandeln | Kunden verwöhnen','🎁',['Verb'],'messe','Wir {{verwöhnen}} unsere Kunden mit bestem Service.'],
+['ausführlich','مفصل / با جزئیات','Adj/Adverb | = detailliert | ausführliche Erklärung','📖',['Adj','Adverb'],'messe','Er erklärt alles sehr {{ausführlich}}.'],
+['die Störung','اختلال / مشکل','-en | stören (Verb) | technische Störung','⚠️',['Nomen'],'messe','Es gibt eine technische {{Störung}}.'],
+['die Verzögerung','تأخیر','-en | sich verzögern | = Verspätung','⏳',['Nomen'],'messe','Es kam zu einer {{Verzögerung}} von drei Stunden.'],
+['die Lüftungsanlage','سیستم تهویه','-n | Lüftung + Anlage | = Klimaanlage','💨',['Nomen','Technik'],'messe','Die {{Lüftungsanlage}} muss gewartet werden.'],
+['installieren','نصب کردن','Akkusativ | = montieren | eine Software ~','🔧',['Verb'],'messe','Der Techniker {{installiert}} die neue Anlage.'],
+['beeinträchtigen','مختل کردن / آسیب رساندن','Akkusativ | = stören | die Leistung beeinträchtigen','⚡',['Verb'],'messe','Der Lärm {{beeinträchtigt}} die Konzentration.'],
+['Aufmerksamkeit gewinnen','جلب توجه کردن','gewinnen (gewann, gewonnen) | Aufmerksamkeit = توجه','👀',['Wendung'],'messe','Das neue Design {{gewinnt}} viel {{Aufmerksamkeit}}.'],
+/* ── KAPITEL 6: TEAM ── */
+['das Arbeitsklima','فضای کاری / محیط کاری','nur Sg. | = Betriebsklima | gutes Arbeitsklima','🌤️',['Nomen','Teamarbeit'],'team','Das {{Arbeitsklima}} in dieser Firma ist sehr gut.'],
+['die Hilfsbereitschaft','آمادگی برای کمک','nur Sg. | hilfsbereit (Adj) | Teamqualität','🤝',['Nomen','Teamarbeit'],'team','Seine {{Hilfsbereitschaft}} wird sehr geschätzt.'],
+['die Fachkompetenz','تخصص / شایستگی حرفه‌ای','nur Sg. | fachlich + Kompetenz | Expertise','⭐',['Nomen','Teamarbeit'],'team','Ihre {{Fachkompetenz}} ist beeindruckend.'],
+['das Vorbild','الگو / نمونه','-er | jdm. als ~ dienen | Vorbild sein für','🏆',['Nomen'],'team','Er ist ein {{Vorbild}} für alle Kollegen.'],
+['würdigen','ارزش گذاشتن / قدردانی کردن','Akkusativ | = anerkennen | Leistungen würdigen','🎖️',['Verb'],'team','Man sollte gute Arbeit {{würdigen}}.'],
+['miserabel','بسیار بد / افتضاح','Adj | = sehr schlecht | miserables Ergebnis','😟',['Adj'],'team','Die Qualität ist {{miserabel}}.'],
+['durchstellen','وصل کردن (تلفن)','trennbar | = verbinden | Sie werden durchgestellt','📞',['Verb','trennbar'],'team','Ich {{stelle}} Sie sofort {{durch}}.'],
+['falsch verbunden sein','اشتباه وصل شدن','= falsche Nummer | Es tut mir leid, ~ ','☎️',['Wendung'],'team','Ich glaube, Sie sind {{falsch verbunden}}.'],
+['eine Nachricht hinterlassen','پیام گذاشتن','hinterlassen (hinterlässt, hinterließ) | = eine Nachricht dalassen','📩',['Wendung'],'team','Können Sie eine {{Nachricht hinterlassen}}?'],
+['sich vergewissern','اطمینان حاصل کردن','reflexiv | = sicherstellen | überprüfen','✅',['Verb','reflexiv'],'team','Bitte {{vergewissern}} Sie sich, dass alles korrekt ist.'],
+['die Teambildung','تیم‌سازی','nur Sg. | Team + Bildung | Teambuilding','🧩',['Nomen','Teamarbeit'],'team','Die {{Teambildung}} ist sehr wichtig.'],
+['nahegelegen','در نزدیکی / مجاور','Adj | = benachbart | nahe + gelegen','📍',['Adj'],'team','Das Restaurant ist {{nahegelegen}}.'],
+['witzig','بامزه / خنده‌دار','Adj | = lustig | witzige Idee','😄',['Adj'],'team','Er ist sehr {{witzig}} und humorvoll.'],
+['im Zentrum stehen','در مرکز توجه بودن','= im Mittelpunkt stehen | zentral sein','⭐',['Wendung'],'team','Der Kunde {{steht}} {{im Zentrum}} unserer Arbeit.'],
+['vielfältig','متنوع / گوناگون','Adj | Vielfalt (Nomen) | vielfältige Aufgaben','🎨',['Adj'],'team','Die Aufgaben sind sehr {{vielfältig}}.'],
+['reibungslos','روان / بدون مشکل','Adj/Adverb | = problemlos | Zusammenarbeit','✅',['Adj','Adverb'],'team','Die Zusammenarbeit läuft {{reibungslos}}.'],
+['sachlich reagieren auf','منطقی واکنش نشان دادن','sachlich = faktisch | + Akkusativ | professionell','🧊',['Wendung','Präp','Akk'],'team','Man sollte {{sachlich}} {{auf}} Kritik {{reagieren}}.'],
+/* ── KAPITEL 7: ANGEBOTE ── */
+['versehentlich','اشتباهی / از روی سهل‌انگاری','Adverb | = aus Versehen | unbeabsichtigt','😅',['Adverb'],'angebot','Ich habe {{versehentlich}} die falsche Datei gelöscht.'],
+['sich auskennen mit','بلد بودن در / متخصص بودن در','+ Dativ | trennbar | = Erfahrung haben','🧠',['Verb','Präp','Dat'],'angebot','Er {{kennt}} sich gut {{mit}} Elektrotechnik {{aus}}.'],
+['prägnant','مختصر و مفید','Adj | = kurz und treffend | prägnante Aussage','💎',['Adj'],'angebot','Die E-Mail ist kurz und {{prägnant}}.'],
+['umständlich','پیچیده / دست‌وپاچلفتی','Adj | = kompliziert | Gegenteil: einfach','🌀',['Adj'],'angebot','Die Erklärung ist sehr {{umständlich}}.'],
+['der Kostenvoranschlag','برآورد هزینه / پیش‌فاکتور','=e | = Angebot | KVA (Abkürzung)','💰',['Nomen','Wirtschaft'],'angebot','Wir senden Ihnen einen {{Kostenvoranschlag}}.'],
+['die Mehrwertsteuer','مالیات بر ارزش افزوده','nur Sg. | MwSt. | = VAT (Engl.)','🧾',['Nomen','Wirtschaft'],'angebot','Alle Preise inkl. {{Mehrwertsteuer}}.'],
+['verbindlich','الزامی / قطعی','Adj | = bindend | verbindliche Zusage','📜',['Adj'],'angebot','Dieses Angebot ist {{verbindlich}} bis Ende des Monats.'],
+['jdm. ein Angebot unterbreiten','به کسی پیشنهاد دادن','unterbreiten (formal) | = ein Angebot machen','📋',['Wendung'],'angebot','Wir möchten Ihnen ein Angebot {{unterbreiten}}.'],
+['der Mengenrabatt','تخفیف حجمی','-e | Menge + Rabatt | bei großen Bestellungen','💰',['Nomen','Wirtschaft'],'angebot','Bei 100 Stück gibt es einen {{Mengenrabatt}}.'],
+['zuzüglich','علاوه بر / به اضافه','zzgl. | Gegenteil: abzüglich | Präposition + Genitiv','➕',['Präp'],'angebot','Der Preis {{zuzüglich}} Versandkosten beträgt 50 €.'],
+['hochwertig','باکیفیت','Adj | = qualitativ hochwertig | hohe Qualität','⭐',['Adj'],'angebot','Wir bieten nur {{hochwertige}} Produkte an.'],
+['bedauerlich','متأسفانه / تأسف‌آور','Adj | = schade | bedauern (Verb)','😞',['Adj'],'angebot','Das ist sehr {{bedauerlich}}.'],
+['kurzfristig','کوتاه‌مدت / فوری','Adj/Adverb | Gegenteil: langfristig | = schnell','⚡',['Adj','Adverb'],'angebot','Wir können {{kurzfristig}} liefern.'],
+['zur Verfügung stehen','در اختیار بودن','= verfügbar sein | Dativ + zur Verfügung','🤲',['Wendung'],'angebot','Ich {{stehe}} Ihnen gerne {{zur Verfügung}}.'],
+['die Erstattung','بازپرداخت','-en | erstatten (Verb) | = Rückzahlung','💶',['Nomen','Wirtschaft'],'angebot','Sie erhalten eine vollständige {{Erstattung}}.'],
+['die Entschädigung','غرامت / جبران خسارت','-en | entschädigen (Verb) | Kompensation','⚖️',['Nomen','Wirtschaft'],'angebot','Als {{Entschädigung}} erhalten Sie einen Gutschein.'],
+['kurzfristig liefern','در کوتاه‌مدت تحویل دادن','liefern = تحویل دادن | Lieferzeit = زمان تحویل','🚚',['Wendung'],'angebot','Wir können {{kurzfristig}} {{liefern}}.'],
+['nachhaken','پیگیری کردن / دنبال کردن','= nachfragen | trennbar | = nachhaken','🔍',['Verb','trennbar'],'angebot','Ich {{hake}} morgen nach dem Status {{nach}}.'],
+['vereinzelt','گاه‌گاهی / بعضاً','Adverb/Adj | = gelegentlich | nicht häufig','🌱',['Adverb'],'angebot','Es gibt {{vereinzelt}} Beschwerden.'],
+['künftig','در آینده / از این پس','Adj/Adverb | = zukünftig | in Zukunft','🔮',['Adj','Adverb'],'angebot','{{Künftig}} werden wir schneller reagieren.'],
+/* ── KAPITEL 8: GEFÜHLE ── */
+['selbstbewusst','اعتماد به نفس داشتن','Adj | Selbstbewusstsein (Nomen) | = sicher','💪',['Adj','Gefühl'],'gefuehl','Sie ist sehr {{selbstbewusst}} und stark.'],
+['schüchtern','خجالتی / کمرو','Adj | Schüchternheit (Nomen) | = zurückhaltend','🙈',['Adj','Gefühl'],'gefuehl','Als Kind war er sehr {{schüchtern}}.'],
+['verärgert','عصبانی / ناراحت','Adj | verärgern (Verb) | = wütend (leichter)','😠',['Adj','Gefühl'],'gefuehl','Sie ist sehr {{verärgert}} über die Verspätung.'],
+['bedrückt','افسرده / غمگین','Adj | bedrücken (Verb) | = niedergeschlagen','😔',['Adj','Gefühl'],'gefuehl','Er wirkt heute sehr {{bedrückt}}.'],
+['überrascht','شگفت‌زده','Adj | überraschen (Verb) | = erstaunt','😲',['Adj','Gefühl'],'gefuehl','Ich bin sehr {{überrascht}} von dieser Nachricht.'],
+['eingebildet','متکبر / خودبین','Adj | sich einbilden | = arrogant, hochnäsig','🙄',['Adj','Charakter'],'gefuehl','Er ist sehr {{eingebildet}} und überheblich.'],
+['begeistert','مشتاق / ذوق‌زده','Adj | begeistern (Verb) | = enthusiastisch','🤩',['Adj','Gefühl'],'gefuehl','Sie ist {{begeistert}} von dem neuen Projekt.'],
+['verblüfft','متعجب / حیرت‌زده','Adj | verblüffen (Verb) | = verblüfft sein','😮',['Adj','Gefühl'],'gefuehl','Er war total {{verblüfft}} von der Neuigkeit.'],
+['besorgt','نگران','Adj | besorgen | sich Sorgen machen','😟',['Adj','Gefühl'],'gefuehl','Die Eltern sind sehr {{besorgt}} um ihr Kind.'],
+['euphorisch','سرخوش / خوشحال بیش از حد','Adj | Euphorie (Nomen) | überaus froh','🎉',['Adj','Gefühl'],'gefuehl','Sie ist {{euphorisch}} nach dem Erfolg.'],
+['entzückt','مجذوب / شیفته','Adj | entzücken (Verb) | = begeistert, sehr erfreut','😍',['Adj','Gefühl'],'gefuehl','Das Baby ist absolut {{entzückend}}.'],
+['frustriert','ناامید / دلسرد','Adj | frustrieren (Verb) | Frustration (Nomen)','😤',['Adj','Gefühl'],'gefuehl','Er ist sehr {{frustriert}} über den Misserfolg.'],
+['zurückhaltend','محتاط / خودداری‌کننده','Adj | sich zurückhalten | = reserviert','🤐',['Adj','Charakter'],'gefuehl','Sie ist {{zurückhaltend}} und bescheiden.'],
+['überheblich','متکبر / مغرور','Adj | Überheblichkeit (Nomen) | = arrogant','😤',['Adj','Charakter'],'gefuehl','Sein {{überhebliches}} Verhalten nervt alle.'],
+['empört','خشمگین / برافروخته','Adj | empören (Verb) | = entrüstet, wütend','😡',['Adj','Gefühl'],'gefuehl','Die Mitarbeiter sind {{empört}} über die Entscheidung.'],
+['bescheiden','فروتن / متواضع','Adj | die Bescheidenheit (Nomen) | Gegenteil: arrogant','🙏',['Adj','Charakter'],'gefuehl','Er ist trotz seines Erfolgs sehr {{bescheiden}}.'],
+['entspannt','آرام / بی‌تنش','Adj | sich entspannen | Entspannung (Nomen)','😌',['Adj','Gefühl'],'gefuehl','Sie wirkt heute sehr {{entspannt}}.'],
+['konstruktiv','سازنده','Adj | konstruktive Kritik | Gegenteil: destruktiv','🏗️',['Adj'],'gefuehl','Bitte äußern Sie {{konstruktive}} Kritik.'],
+];
+
+/* ═══════════════ BUILD CARDS FROM VOC ═══════════════ */
+function buildCard(v,i){
+  const[word,trans,gram,emoji,tags,deck,sent]=v;
+  const front=sent||`Ich nutze das Wort {{${word}}} heute.`;
+  return{
+    id:'v'+i,deck,type:'cloze',
+    front,back:trans,grammar:gram,image:emoji,tags,
+    interval:1,ef:2.5,reps:0,lapses:0,
+    due:NOW()-DAY*Math.floor(Math.random()*3),
+    status:'new',totalReviews:0,correctReviews:0,lastReview:null,
+    _word:word,_trans:trans
+  };
+}
+
+let BASE_CARDS=VOC.map((v,i)=>buildCard(v,i));
+
+/* ═══════════════ STATE ═══════════════ */
+let CARDS=[...BASE_CARDS];
+let pg='decks',revQueue=[],revIdx=0,revShown=false;
+let sessionCorrect=0,sessionWrong=0,sessionDone=0;
+let editingCard=null,chIdx=0,chosen=null;
+let charts={};
+
+function save(){try{localStorage.setItem('apv2_cards',JSON.stringify(CARDS))}catch(e){}}
+function load(){try{const s=localStorage.getItem('apv2_cards');if(s){const d=JSON.parse(s);if(d.length>=BASE_CARDS.length)CARDS=d;}}catch(e){}}
+load();
+
+function getDue(){return CARDS.filter(c=>c.due<=NOW()&&c.status!=='leech')}
+function getNew(){return CARDS.filter(c=>c.status==='new')}
+function updateBadges(){
+  const n=getDue().length;
+  ['nb-due','nb-rev2'].forEach(id=>{const el=document.getElementById(id);if(el){el.textContent=n;el.style.display=n?'':'none'}});
+}
+
+/* ═══════════════ NAV ═══════════════ */
+const TITLES={decks:'Decks',voc:'Vokabelliste',add:'Neue Karte',browse:'Kartenbrowser',stats:'Statistiken',review:'Wiederholung'};
+function go(p){
+  pg=p;
+  document.querySelectorAll('.ni').forEach(el=>el.classList.remove('on'));
+  const el=document.getElementById('ni-'+p);if(el)el.classList.add('on');
+  document.getElementById('ptitle').textContent=TITLES[p]||p;
+  Object.values(charts).forEach(c=>{try{c.destroy()}catch(_){}});charts={};
+  const b=document.getElementById('body');
+  b.style.animation='none';requestAnimationFrame(()=>{b.style.animation='';render()});
+  updateBadges();
+}
+
+function render(){
+  const b=document.getElementById('body');
+  if(pg==='decks') rDecks(b);
+  else if(pg==='voc') rVoc(b);
+  else if(pg==='add') rAdd(b);
+  else if(pg==='browse') rBrowse(b);
+  else if(pg==='stats') rStats(b);
+  else if(pg==='review') rReview(b);
+}
+
+/* ═══════════════ DECKS ═══════════════ */
+function rDecks(b){
+  const total=CARDS.length,due=getDue().length;
+  const acc=CARDS.filter(c=>c.totalReviews>0);
+  const avgAcc=acc.length?Math.round(acc.reduce((s,c)=>s+c.correctReviews/c.totalReviews,0)/acc.length*100):0;
+  b.innerHTML=`
+  <div class="g4 mb10">
+    <div class="mc"><div class="mv" style="color:var(--teal)">${due}</div><div class="ml">Heute fällig</div><div class="mch ${due>5?'dn':'up'}">${due>0?'⚡ Lernen!':'✓ Erledigt'}</div></div>
+    <div class="mc"><div class="mv">${total}</div><div class="ml">Karten gesamt</div><div class="mch nu">${getNew().length} neu</div></div>
+    <div class="mc"><div class="mv" style="color:var(--green)">${avgAcc||0}%</div><div class="ml">Ø Retention</div></div>
+    <div class="mc"><div class="mv" style="color:var(--yellow)">14</div><div class="ml">Streak</div></div>
+  </div>
+  ${due>0?`<div style="background:linear-gradient(135deg,rgba(13,148,136,.12),rgba(45,212,191,.04));border:1px solid rgba(45,212,191,.18);border-radius:var(--rb);padding:15px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px">
+    <div style="font-size:26px">🎯</div>
+    <div style="flex:1"><div style="font-size:14px;font-weight:700;margin-bottom:2px">${due} Karte${due>1?'n':''} warten auf Wiederholung</div><div style="font-size:11px;color:var(--t3)">${CARDS.filter(c=>c.status==='new'&&c.due<=NOW()).length} Neue · ${CARDS.filter(c=>c.status==='learning'&&c.due<=NOW()).length} In Übung</div></div>
+    <button onclick="startReview()" class="abtn" style="font-size:13px;padding:11px 20px">▶ Jetzt lernen</button>
+  </div>`:''}
+  <div class="card">
+    <div class="ct">📦 Deine Decks (${DECKS_DEF.length} Kapitel · ${total} Karten)</div>
+    ${DECKS_DEF.map(d=>{
+      const dc=CARDS.filter(c=>c.deck===d.id);
+      const dn=dc.filter(c=>c.status==='new').length;
+      const dl=dc.filter(c=>c.status==='learning'&&c.due<=NOW()).length;
+      const dr=dc.filter(c=>c.status==='review'&&c.due<=NOW()).length;
+      const dd=dn+dl+dr;
+      return`<div class="deck-row" onclick="startDeckReview('${d.id}')">
+        <div class="deck-icon" style="background:${d.color}">${d.icon}</div>
+        <div class="deck-info">
+          <div class="deck-name">${d.name}</div>
+          <div class="deck-sub">${d.desc} · ${dc.length} Karten</div>
+        </div>
+        <div class="deck-counts">
+          ${dn>0?`<span class="dc new">${dn}</span>`:''}
+          ${dl>0?`<span class="dc lrn">${dl}</span>`:''}
+          ${dr>0?`<span class="dc rev">${dr}</span>`:''}
+          ${dd===0?`<span style="font-size:11px;color:var(--t5)">✓</span>`:''}
+        </div>
+      </div>`;
+    }).join('')}
+  </div>
+  <div class="g2">
+    <div class="card" style="margin-bottom:0">
+      <div class="ct">📅 Fällig in 7 Tagen</div>
+      <div style="display:flex;align-items:flex-end;gap:6px;height:72px;padding-top:8px" id="fcast"></div>
+      <div style="display:flex;gap:0;margin-top:6px">${['Mo','Di','Mi','Do','Fr','Sa','So'].map(d=>`<div style="flex:1;text-align:center;font-size:9px;color:var(--t5)">${d}</div>`).join('')}</div>
+    </div>
+    <div class="card" style="margin-bottom:0">
+      <div class="ct">🍩 Status</div>
+      <div class="cw h160"><canvas id="cpie" role="img" aria-label="Status">Daten</canvas></div>
+    </div>
+  </div>`;
+  setTimeout(()=>{
+    const fw=document.getElementById('fcast');
+    if(fw){
+      const cnt=Array.from({length:7},(_,i)=>CARDS.filter(c=>c.due>=NOW()+i*DAY&&c.due<NOW()+(i+1)*DAY).length);
+      const mx=Math.max(...cnt,1);
+      fw.innerHTML=cnt.map(n=>`<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px"><div style="font-size:10px;font-weight:700;color:${n>10?'var(--red)':n>5?'var(--orange)':'var(--teal)'}">${n}</div><div style="width:100%;height:${Math.max(4,Math.round(n/mx*50))}px;background:${n>10?'rgba(248,113,113,.5)':n>5?'rgba(251,146,60,.4)':'rgba(13,148,136,.4)'};border-radius:3px 3px 0 0"></div></div>`).join('');
+    }
+    const cp=document.getElementById('cpie');
+    if(cp){const ns=getNew().length,ls=CARDS.filter(c=>c.status==='learning').length,rs=CARDS.filter(c=>c.status==='review').length;
+      charts.pie=new Chart(cp,{type:'doughnut',data:{labels:['Neu','Übung','Wdh.'],datasets:[{data:[ns,ls,rs],backgroundColor:['rgba(96,165,250,.6)','rgba(251,146,60,.6)','rgba(74,222,128,.6)'],borderWidth:0,hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'bottom',labels:{color:'#64748b',font:{size:10},boxWidth:9,padding:10}}}}});}
+  },80);
+}
+
+/* ═══════════════ VOCAB LIST ═══════════════ */
+let vocFilter='';
+function rVoc(b){
+  b.innerHTML=`
+  <div class="card mb10">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+      <div class="ct" style="margin-bottom:0">📚 Vokabelliste – ${VOC.length} Wörter</div>
+      <div class="row" style="flex-wrap:wrap;gap:4px">
+        <span class="chapter-pill" style="background:rgba(255,255,255,.04);border-color:var(--bd2);color:var(--t3)" onclick="filterVoc('',this)">Alle</span>
+        ${DECKS_DEF.map(d=>`<span class="chapter-pill" style="background:${d.color};border-color:var(--bd2);color:var(--t2)" onclick="filterVoc('${d.id}',this)">${d.icon} ${d.name.split(' ')[0]}</span>`).join('')}
+      </div>
+    </div>
+    <input class="form-inp" id="voc-search" placeholder="🔍 Suchen..." oninput="filterVocSearch(this.value)" style="margin-bottom:12px">
+    <div id="voc-grid" class="voc-grid"></div>
+  </div>`;
+  renderVocGrid();
+}
+function filterVoc(deck,el){
+  vocFilter=deck;
+  document.querySelectorAll('.chapter-pill').forEach(e=>e.classList.remove('active'));
+  if(el)el.classList.add('active');
+  renderVocGrid();
+}
+function filterVocSearch(q){
+  const grid=document.getElementById('voc-grid');
+  if(!grid)return;
+  const search=q.toLowerCase();
+  document.querySelectorAll('.vc').forEach(card=>{
+    const w=card.getAttribute('data-word')||'';
+    const t=card.getAttribute('data-trans')||'';
+    card.style.display=(w.includes(search)||t.includes(search))?'':'none';
+  });
+}
+function renderVocGrid(){
+  const grid=document.getElementById('voc-grid');
+  if(!grid)return;
+  const list=VOC.filter(v=>!vocFilter||v[5]===vocFilter);
+  grid.innerHTML=list.map(v=>{
+    const[word,trans,,emoji,tags,deck]=v;
+    const card=CARDS.find(c=>c._word===word&&c.deck===deck);
+    const st=card?card.status:'new';
+    const stColor={'new':'var(--blue)','learning':'var(--orange)','review':'var(--green)','leech':'var(--red)'}[st]||'var(--t4)';
+    return`<div class="vc" data-word="${word.toLowerCase()}" data-trans="${trans}" onclick="startWordReview('${word}','${deck}')">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
+        <div class="vc-w">${emoji} ${word}</div>
+        <div style="width:6px;height:6px;border-radius:50%;background:${stColor};flex-shrink:0"></div>
+      </div>
+      <div class="vc-t">${trans}</div>
+      <div class="vc-tag">${tags.slice(0,2).join(' · ')}</div>
+    </div>`;
+  }).join('');
+}
+function startWordReview(word,deck){
+  buildQueue(deck);
+  const idx=revQueue.findIndex(c=>c._word===word);
+  if(idx>=0){revIdx=idx;}
+  go('review');
+}
+
+/* ═══════════════ REVIEW ═══════════════ */
+function buildQueue(deckFilter=null){
+  let cards=deckFilter?CARDS.filter(c=>c.deck===deckFilter):CARDS;
+  const lrn=cards.filter(c=>c.status==='learning'&&c.due<=NOW());
+  const rev=cards.filter(c=>c.status==='review'&&c.due<=NOW());
+  const nw=cards.filter(c=>c.status==='new').slice(0,15);
+  revQueue=[...lrn,...rev,...nw].filter(c=>c.status!=='leech');
+  revIdx=0;revShown=false;sessionCorrect=0;sessionWrong=0;sessionDone=0;
+}
+function startReview(){buildQueue();if(!revQueue.length){toast('Nichts zu wiederholen!','ok');return}go('review')}
+function startDeckReview(deck){buildQueue(deck);if(!revQueue.length){toast('Deck erledigt!','ok');return}go('review')}
+
+function rReview(b){
+  if(!revQueue.length||revIdx>=revQueue.length){rDone(b);return}
+  const card=revQueue[revIdx];
+  const prog=Math.round(revIdx/revQueue.length*100);
+  const cloze=parseCloze(card.front);
+  b.innerHTML='';b.style.padding='0';
+  const wrap=document.createElement('div');
+  wrap.className='rev-wrap';
+  wrap.innerHTML=`
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+    <div class="row" style="gap:10px">
+      <span style="font-size:11px;color:var(--green)">✓ ${sessionCorrect}</span>
+      <span style="font-size:11px;color:var(--red)">✗ ${sessionWrong}</span>
+      <span style="font-size:11px;color:var(--t4)">${revIdx+1}/${revQueue.length}</span>
+    </div>
+    <div class="row">
+      ${card.tags.slice(0,2).map(t=>`<span class="badge" style="background:var(--s3);color:var(--t4);font-size:9px">${t}</span>`).join('')}
+      <button onclick="go('decks')" class="abtn sec" style="font-size:10px;padding:4px 9px">✕</button>
+    </div>
+  </div>
+  <div class="rev-prog-bar"><div class="rev-prog-fill" style="width:${prog}%"></div></div>
+  <div class="flip-scene" id="flip-scene" onclick="if(!revShown)showAns()">
+    <div class="flip-card" id="flip-card">
+      <div class="fc-face fc-front">
+        <div class="fc-header">
+          <span class="fc-type">${{sentence:'Satz',cloze:'Lückentext',image:'Bild'}[card.type]||'Karte'}</span>
+          <div class="fc-tags">${card.tags.map(t=>`<span class="fc-tag">${t}</span>`).join('')}</div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-img-ph">${card.image}</div>
+          <div class="fc-sentence">${cloze.front}</div>
+          <div class="fc-hint">Ergänze das fehlende Wort</div>
+        </div>
+        <div class="fc-footer"><span style="font-size:10px;color:var(--t5)">Klicken · Leertaste</span></div>
+      </div>
+      <div class="fc-face fc-back">
+        <div class="fc-header">
+          <span class="fc-type" style="color:var(--teal)">Antwort</span>
+          <div style="font-size:10px;color:var(--t5)">EF ${card.ef.toFixed(1)} · ${card.interval}d</div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-img-ph" style="font-size:40px">${card.image}</div>
+          <div class="fc-sentence">${cloze.back}</div>
+          <div class="fc-trans">${card.back}</div>
+          <div class="fc-grammar">${card.grammar}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flip-hint" id="fhint">👆 Klicken oder <kbd style="background:var(--s4);border:1px solid var(--bd2);padding:1px 6px;border-radius:3px;font-size:9px">Leertaste</kbd></div>
+  <div style="display:none" id="ans-row">
+    <div class="ans-row">
+      <button class="ans-btn again" onclick="answer(0)">Nochmal<span class="ai">&lt;1m</span></button>
+      <button class="ans-btn hard" onclick="answer(1)">Schwer<span class="ai">~${Math.max(1,Math.round(card.interval*1.2))}d</span></button>
+      <button class="ans-btn good" onclick="answer(2)">Gut<span class="ai">${card.reps<2?1:Math.round(card.interval*card.ef)}d</span></button>
+      <button class="ans-btn easy" onclick="answer(3)">Einfach<span class="ai">${card.reps<2?4:Math.round(card.interval*card.ef*1.3)}d</span></button>
+    </div>
+  </div>`;
+  b.appendChild(wrap);
+  const kh=(e)=>{
+    if(e.code==='Space'){e.preventDefault();if(!revShown)showAns();}
+    else if(e.key==='1'&&revShown)answer(0);
+    else if(e.key==='2'&&revShown)answer(1);
+    else if(e.key==='3'&&revShown)answer(2);
+    else if(e.key==='4'&&revShown)answer(3);
+  };
+  document.addEventListener('keydown',kh);
+  wrap._kh=kh;
+}
+
+function parseCloze(text){
+  const front=text.replace(/\{\{([^}]+)\}\}/g,'<span class="blank">$1</span>');
+  const back=text.replace(/\{\{([^}]+)\}\}/g,'<span class="cloze">$1</span>');
+  return{front,back};
+}
+function showAns(){
+  if(revShown)return;revShown=true;
+  document.getElementById('flip-card').classList.add('flipped');
+  document.getElementById('fhint').style.display='none';
+  const ar=document.getElementById('ans-row');
+  if(ar){ar.style.display='block';ar.style.animation='pi .2s ease'}
+  playBeep(null);
+}
+function answer(q){
+  if(!revShown){showAns();return}
+  const card=revQueue[revIdx];
+  const updated=sm2(card,q);
+  const idx=CARDS.findIndex(c=>c.id===card.id);
+  if(idx>=0)CARDS[idx]=updated;
+  save();
+  if(q===0)sessionWrong++;else sessionCorrect++;
+  sessionDone++;revIdx++;revShown=false;
+  document.removeEventListener('keydown',document.getElementById('body')._kh||function(){});
+  document.getElementById('body').style.padding='0';
+  rReview(document.getElementById('body'));
+  playBeep(q>0);
+}
+function rDone(b){
+  const acc=sessionDone?Math.round(sessionCorrect/sessionDone*100):0;
+  b.style.padding='20px 22px';
+  b.innerHTML=`<div class="done-wrap">
+    <div class="done-icon">${acc>=80?'🎉':acc>=60?'👍':'💪'}</div>
+    <div class="done-title">Session abgeschlossen!</div>
+    <div class="done-sub">${sessionDone} Karten wiederholt. ${acc>=80?'Ausgezeichnet!':acc>=60?'Gut gemacht!':'Weiterüben!'}</div>
+    <div class="done-stats">
+      <div class="ds"><div class="ds-v" style="color:var(--green)">${sessionCorrect}</div><div class="ds-l">Richtig</div></div>
+      <div class="ds"><div class="ds-v" style="color:var(--red)">${sessionWrong}</div><div class="ds-l">Falsch</div></div>
+      <div class="ds"><div class="ds-v" style="color:var(--teal)">${acc}%</div><div class="ds-l">Retention</div></div>
+    </div>
+    <div class="row" style="gap:10px">
+      <button onclick="go('decks')" class="abtn" style="padding:11px 22px">← Decks</button>
+      <button onclick="startReview()" class="abtn sec" style="padding:11px 22px">⟳ Nochmal</button>
+    </div>
+  </div>`;
+}
+
+/* ═══════════════ ADD CARD ═══════════════ */
+function rAdd(b){
+  b.innerHTML=`<div class="g2">
+  <div class="card">
+    <div class="ct">✏️ Neue Karte</div>
+    <div class="form-row"><label class="form-label">Deck</label>
+      <select class="form-inp" id="f-deck">${DECKS_DEF.map(d=>`<option value="${d.id}">${d.icon} ${d.name}</option>`).join('')}</select></div>
+    <div class="form-row"><label class="form-label">Vorderseite (Satz mit {{Lücke}})</label>
+      <textarea class="form-inp" id="f-front" rows="3" placeholder="z.B.: Ich {{warte}} auf dich."></textarea></div>
+    <div class="form-row"><label class="form-label">Rückseite (Farsi)</label>
+      <textarea class="form-inp" id="f-back" rows="2" placeholder="ترجمه فارسی..."></textarea></div>
+    <div class="form-row"><label class="form-label">Grammatik-Hinweis</label>
+      <textarea class="form-inp" id="f-gram" rows="2" placeholder="z.B.: warten auf + Akkusativ"></textarea></div>
+    <div class="form-row"><label class="form-label">Emoji</label>
+      <input class="form-inp" id="f-emoji" value="📝" maxlength="4"></div>
+    <div class="form-row"><label class="form-label">Tags (kommagetrennt)</label>
+      <input class="form-inp" id="f-tags" placeholder="Verb, Präp, Akk..."></div>
+    <button onclick="saveCard()" class="abtn" style="width:100%;padding:12px">💾 Karte speichern</button>
+  </div>
+  <div class="card">
+    <div class="ct">👁️ Vorschau</div>
+    <div style="background:var(--s2);border:1px solid var(--bd2);border-radius:var(--rb);padding:18px;text-align:center;min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+      <div id="pv-em" style="font-size:44px">📝</div>
+      <div id="pv-sent" style="font-size:16px;font-weight:600;line-height:1.6;color:var(--t1)">Satz eingeben...</div>
+      <div id="pv-trans" style="font-size:12px;color:var(--t3)">ترجمه اینجا</div>
+    </div>
+  </div>
+  </div>`;
+  document.getElementById('f-front').addEventListener('input',updatePv);
+  document.getElementById('f-back').addEventListener('input',updatePv);
+  document.getElementById('f-emoji').addEventListener('input',updatePv);
+}
+function updatePv(){
+  const f=(document.getElementById('f-front')||{}).value||'';
+  const b=(document.getElementById('f-back')||{}).value||'';
+  const e=(document.getElementById('f-emoji')||{}).value||'📝';
+  const pe=document.getElementById('pv-em'),ps=document.getElementById('pv-sent'),pt=document.getElementById('pv-trans');
+  if(pe)pe.textContent=e;
+  if(ps)ps.innerHTML=f.replace(/\{\{([^}]+)\}\}/g,'<span style="color:var(--teal);border-bottom:2px solid var(--teal);padding:0 3px">$1</span>')||'Satz eingeben...';
+  if(pt)pt.textContent=b||'ترجمه اینجا';
+}
+function saveCard(){
+  const front=(document.getElementById('f-front')||{}).value.trim();
+  const back=(document.getElementById('f-back')||{}).value.trim();
+  if(!front||!back){toast('Vorder- und Rückseite sind Pflicht!','bad');return}
+  const tags=((document.getElementById('f-tags')||{}).value||'').split(',').map(t=>t.trim()).filter(Boolean);
+  const card={id:'c'+Date.now(),deck:(document.getElementById('f-deck')||{}).value||'job',type:'cloze',front,back,
+    grammar:(document.getElementById('f-gram')||{}).value.trim(),image:(document.getElementById('f-emoji')||{}).value||'📝',
+    tags:tags.length?tags:['Eigene'],interval:1,ef:2.5,reps:0,lapses:0,due:NOW(),status:'new',totalReviews:0,correctReviews:0,lastReview:null,_word:'',_trans:back};
+  CARDS.push(card);save();toast('✅ Karte gespeichert!','ok');
+  ['f-front','f-back','f-gram','f-tags'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  updatePv();updateBadges();
+}
+
+/* ═══════════════ BROWSE ═══════════════ */
+function rBrowse(b){
+  b.innerHTML=`<div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+      <div class="ct" style="margin-bottom:0">🗂️ Kartenbrowser – ${CARDS.length} Karten</div>
+      <div class="row" style="gap:6px;flex-wrap:wrap">
+        <select class="form-inp" id="f-dk" onchange="renderBrows()" style="width:150px;padding:6px 10px">
+          <option value="">Alle Decks</option>${DECKS_DEF.map(d=>`<option value="${d.id}">${d.name.split(' ')[0]}</option>`).join('')}
+        </select>
+        <select class="form-inp" id="f-st" onchange="renderBrows()" style="width:130px;padding:6px 10px">
+          <option value="">Alle Status</option>
+          <option value="new">Neu</option><option value="learning">Übung</option>
+          <option value="review">Wiederholen</option><option value="leech">Leech</option>
+        </select>
+        <input class="form-inp" id="f-sq" placeholder="Suchen..." oninput="renderBrows()" style="width:140px;padding:6px 10px">
+      </div>
+    </div>
+    <div style="overflow-x:auto;max-height:calc(100vh - 250px);overflow-y:auto">
+      <table class="browse-table">
+        <thead><tr><th>Wort</th><th>Deutsch</th><th>Farsi</th><th>Status</th><th>EF</th><th>Intervall</th><th></th></tr></thead>
+        <tbody id="brows-rows"></tbody>
+      </table>
+    </div>
+  </div>`;
+  renderBrows();
+}
+function renderBrows(){
+  const dk=(document.getElementById('f-dk')||{}).value||'';
+  const st=(document.getElementById('f-st')||{}).value||'';
+  const sq=((document.getElementById('f-sq')||{}).value||'').toLowerCase();
+  const rows=document.getElementById('brows-rows');if(!rows)return;
+  const filtered=CARDS.filter(c=>{
+    if(dk&&c.deck!==dk)return false;
+    if(st&&c.status!==st)return false;
+    if(sq&&!(c._word||'').toLowerCase().includes(sq)&&!(c._trans||'').toLowerCase().includes(sq)&&!c.front.toLowerCase().includes(sq))return false;
+    return true;
+  });
+  rows.innerHTML=filtered.map(c=>{
+    const due=c.due<=NOW()?`<span style="color:var(--red)">Jetzt</span>`:`<span style="color:var(--t4)">${Math.ceil((c.due-NOW())/DAY)}d</span>`;
+    return`<tr><td>${c.image}</td><td title="${c.front}">${(c._word||c.front.replace(/\{\{([^}]+)\}\}/g,'$1')).slice(0,30)}</td>
+      <td style="color:var(--t3)">${(c._trans||c.back).slice(0,25)}</td>
+      <td><span class="st-pill st-${c.status}">${{new:'Neu',learning:'Übung',review:'Wdh.',leech:'Leech'}[c.status]||c.status}</span></td>
+      <td class="mono" style="color:${c.ef>=2.5?'var(--green)':c.ef>=2?'var(--orange)':'var(--red)'}">${c.ef.toFixed(1)}</td>
+      <td>${due}</td>
+      <td><button onclick="openEdit('${c.id}')" class="abtn sec" style="padding:3px 8px;font-size:9px">✏️</button></td>
+    </tr>`;
+  }).join('');
+}
+function openEdit(id){
+  const card=CARDS.find(c=>c.id===id);if(!card)return;
+  editingCard=card;
+  document.getElementById('edit-body').innerHTML=`
+  <div class="form-row"><label class="form-label">Vorderseite</label><textarea class="form-inp" id="e-f" rows="3">${card.front}</textarea></div>
+  <div class="form-row"><label class="form-label">Rückseite (Farsi)</label><textarea class="form-inp" id="e-b" rows="2">${card.back}</textarea></div>
+  <div class="form-row"><label class="form-label">Grammatik</label><textarea class="form-inp" id="e-g" rows="2">${card.grammar.replace(/<[^>]+>/g,'')}</textarea></div>
+  <div class="form-row"><label class="form-label">Emoji</label><input class="form-inp" id="e-em" value="${card.image}" maxlength="4"></div>
+  <div class="row mt8"><button onclick="saveEdit()" class="abtn" style="flex:1">💾 Speichern</button>
+    <button onclick="deleteCard('${card.id}')" class="abtn danger">🗑️</button>
+    <button onclick="resetCard('${card.id}')" class="abtn sec">↺ Reset</button></div>`;
+  document.getElementById('editModal').classList.add('on');
+}
+function closeEdit(){document.getElementById('editModal').classList.remove('on')}
+function saveEdit(){
+  if(!editingCard)return;
+  const idx=CARDS.findIndex(c=>c.id===editingCard.id);if(idx<0)return;
+  CARDS[idx]={...CARDS[idx],front:document.getElementById('e-f').value,back:document.getElementById('e-b').value,grammar:document.getElementById('e-g').value,image:document.getElementById('e-em').value||'📝'};
+  save();closeEdit();toast('Gespeichert!','ok');if(pg==='browse')renderBrows();
+}
+function deleteCard(id){
+  if(!confirm('Karte löschen?'))return;
+  CARDS=CARDS.filter(c=>c.id!==id);save();closeEdit();toast('Gelöscht','bad');
+  if(pg==='browse')rBrowse(document.getElementById('body'));updateBadges();
+}
+function resetCard(id){
+  const idx=CARDS.findIndex(c=>c.id===id);if(idx<0)return;
+  CARDS[idx]={...CARDS[idx],interval:1,ef:2.5,reps:0,lapses:0,due:NOW(),status:'new',totalReviews:0,correctReviews:0};
+  save();closeEdit();toast('Zurückgesetzt','ok');
+}
+
+/* ═══════════════ STATS ═══════════════ */
+function rStats(b){
+  const total=CARDS.length;
+  const rev=CARDS.filter(c=>c.totalReviews>0);
+  const acc=rev.length?Math.round(rev.reduce((s,c)=>s+c.correctReviews/c.totalReviews,0)/rev.length*100):0;
+  const hm=Array.from({length:182},(_,i)=>{const r=Math.random(),v=r>.55?0:r>.4?1:r>.3?2:r>.2?3:r>.1?4:5;return`<div class="hc h${v}"></div>`}).join('');
+  b.innerHTML=`
+  <div class="g5 mb10">
+    <div class="mc"><div class="mv" style="color:var(--teal)">${acc||0}%</div><div class="ml">Retention</div></div>
+    <div class="mc"><div class="mv">${total}</div><div class="ml">Karten</div></div>
+    <div class="mc"><div class="mv" style="color:var(--green)">${CARDS.filter(c=>c.interval>=21).length}</div><div class="ml">Reif ≥21d</div></div>
+    <div class="mc"><div class="mv" style="color:var(--yellow)">14</div><div class="ml">Streak</div></div>
+    <div class="mc"><div class="mv" style="color:var(--red)">${CARDS.filter(c=>c.status==='leech').length}</div><div class="ml">Leech</div></div>
+  </div>
+  <div class="g2 mb10">
+    <div class="card" style="margin-bottom:0">
+      <div class="ct">📈 Reviews (30 Tage)</div>
+      <div class="cw h200"><canvas id="cline" role="img" aria-label="Reviews">Daten</canvas></div>
+    </div>
+    <div class="card" style="margin-bottom:0">
+      <div class="ct">🎯 Karten pro Deck</div>
+      <div class="cw h200"><canvas id="cdeck" role="img" aria-label="Deck">Daten</canvas></div>
+    </div>
+  </div>
+  <div class="card mb10">
+    <div class="ct">🔥 Lernaktivität (6 Monate)</div>
+    <div class="heatmap">${hm}</div>
+    <div class="row mt8" style="gap:5px;font-size:9px;color:var(--t5)">Weniger ${[0,1,2,3,4,5].map(v=>`<div class="hc h${v}" style="width:10px;height:10px;flex-shrink:0"></div>`).join('')} Mehr</div>
+  </div>
+  <div class="g2">
+    <div class="card" style="margin-bottom:0">
+      <div class="ct">💪 Skill-Level (SM-2 EF)</div>
+      ${DECKS_DEF.map(d=>{const dc=CARDS.filter(c=>c.deck===d.id&&c.totalReviews>0);const ef=dc.length?dc.reduce((s,c)=>s+c.ef,0)/dc.length:2.5;const pct=Math.round((ef-1.3)/(3.5-1.3)*100);return`<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px"><span style="color:var(--t2)">${d.icon} ${d.name.split('&')[0].trim()}</span><span style="font-weight:700;color:${pct>70?'var(--green)':pct>40?'var(--yellow)':'var(--red)'}">${pct}%</span></div><div class="sk-bar"><div class="sk-fill" style="width:${pct}%;background:${pct>70?'var(--green)':pct>40?'var(--yellow)':'var(--red)'}"></div></div></div>`}).join('')}
+    </div>
+    <div class="card" style="margin-bottom:0">
+      <div class="ct">🔴 Schwächste Karten</div>
+      ${CARDS.sort((a,b)=>a.ef-b.ef).slice(0,6).map(c=>`<div style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04)">
+        <span style="font-size:18px">${c.image}</span>
+        <div style="flex:1;min-width:0"><div style="font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c._word||c.front.slice(0,30)}</div>
+        <div style="font-size:9px;color:var(--t4)">${c.lapses} Fehler · EF: ${c.ef.toFixed(1)}</div></div>
+        <button onclick="openEdit('${c.id}')" class="abtn sec" style="font-size:9px;padding:3px 7px">✏️</button>
+      </div>`).join('')}
+    </div>
+  </div>`;
+  setTimeout(()=>{
+    const gc='rgba(255,255,255,.04)';
+    const cl=document.getElementById('cline');
+    const cd=document.getElementById('cdeck');
+    if(cl)charts.l=new Chart(cl,{type:'bar',data:{
+      labels:Array.from({length:30},(_,i)=>i%5===0?'T'+(30-i):''),
+      datasets:[{label:'Richtig',data:Array.from({length:30},()=>Math.round(8+Math.random()*25)),backgroundColor:'rgba(74,222,128,.4)',borderRadius:3,stack:'s'},
+        {label:'Falsch',data:Array.from({length:30},()=>Math.round(1+Math.random()*8)),backgroundColor:'rgba(248,113,113,.4)',borderRadius:3,stack:'s'}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+        scales:{x:{grid:{color:gc},ticks:{color:'#475569',font:{size:9}},stacked:true},y:{grid:{color:gc},ticks:{color:'#475569',font:{size:9}},stacked:true}}}});
+    if(cd)charts.d=new Chart(cd,{type:'bar',data:{
+      labels:DECKS_DEF.map(d=>d.icon+' '+d.name.split(' ')[0]),
+      datasets:[{data:DECKS_DEF.map(d=>CARDS.filter(c=>c.deck===d.id).length),backgroundColor:['rgba(96,165,250,.6)','rgba(45,212,191,.6)','rgba(167,139,250,.6)','rgba(251,146,60,.6)','rgba(244,114,182,.6)','rgba(74,222,128,.6)','rgba(250,204,21,.6)'],borderRadius:5}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},indexAxis:'y',
+        scales:{x:{grid:{color:gc},ticks:{color:'#475569',font:{size:10}}},y:{grid:{color:'none'},ticks:{color:'#64748b',font:{size:10}}}}}});
+  },80);
+}
+
+/* ═══════════════ AUDIO ═══════════════ */
+let _ac=null;
+function playBeep(ok){
+  try{if(!_ac)_ac=new(window.AudioContext||window.webkitAudioContext)();
+    const o=_ac.createOscillator(),g=_ac.createGain();o.connect(g);g.connect(_ac.destination);
+    o.frequency.value=ok===null?600:ok?880:220;o.type=ok===false?'sawtooth':'sine';
+    g.gain.setValueAtTime(.07,_ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,_ac.currentTime+.2);
+    o.start();o.stop(_ac.currentTime+.2);
+  }catch(e){}
+}
+
+/* ═══════════════ TOAST ═══════════════ */
+let _tt=null;
+function toast(msg,type='ok'){
+  const el=document.getElementById('toast');el.textContent=msg;el.className='toast '+type+' on';
+  clearTimeout(_tt);_tt=setTimeout(()=>el.className='toast',2600);
+}
+
+/* ═══════════════ INIT ═══════════════ */
+updateBadges();go('decks');
+</script>
+</body>
+</html>
